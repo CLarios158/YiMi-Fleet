@@ -30,7 +30,7 @@ class DocumentoSNCM extends Component {
         if(this.state.isConnected != false){
             const { navigation } = this.props;
             this.focusListener = navigation.addListener('didFocus', () => {
-                axios.post('http://35.203.42.33:3000/consultar_doc4',{id_usuario: this.state.id_usuario})
+                axios.post('http://35.203.57.92:3000/consultar_doc4',{id_usuario: this.state.id_usuario})
                 .then(response => {
                     response.data.data.forEach(element => {
                         this.setState({
@@ -47,7 +47,7 @@ class DocumentoSNCM extends Component {
                         }        
                     });
                 });            
-                axios.post('http://35.203.42.33:3000/consultar_doc7',{id_usuario: this.state.id_usuario})
+                axios.post('http://35.203.57.92:3000/consultar_doc7',{id_usuario: this.state.id_usuario})
                 .then(response => {
                     response.data.data.forEach(element => {
                         this.setState({
@@ -56,7 +56,7 @@ class DocumentoSNCM extends Component {
                         });        
                     });
                 }); 
-                axios.post('http://35.203.42.33:3000/consultar_doc1',{id_usuario: this.state.id_usuario})
+                axios.post('http://35.203.57.92:3000/consultar_doc1',{id_usuario: this.state.id_usuario})
                 .then(response => {
                     response.data.data.forEach(element => {
                         this.setState({
@@ -66,7 +66,7 @@ class DocumentoSNCM extends Component {
                         });        
                     });
                 });
-                axios.post('http://35.203.42.33:3000/consultar_doc3',{id_usuario: this.state.id_usuario})
+                axios.post('http://35.203.57.92:3000/consultar_doc3',{id_usuario: this.state.id_usuario})
                 .then(response => {
                     response.data.data.forEach(element => {
                         this.setState({
@@ -76,7 +76,7 @@ class DocumentoSNCM extends Component {
                         });        
                     });
                 });            
-                axios.post('http://35.203.42.33:3000/consultar_doc5',{id_usuario: this.state.id_usuario})
+                axios.post('http://35.203.57.92:3000/consultar_doc5',{id_usuario: this.state.id_usuario})
                 .then(response => {
                     response.data.data.forEach(element => {
                         this.setState({
@@ -85,7 +85,7 @@ class DocumentoSNCM extends Component {
                         });        
                     });
                 });
-                axios.post('http://35.203.42.33:3000/consultar_doc6',{id_usuario: this.state.id_usuario})
+                axios.post('http://35.203.57.92:3000/consultar_doc6',{id_usuario: this.state.id_usuario})
                 .then(response => {
                     response.data.data.forEach(element => {
                         this.setState({
@@ -94,7 +94,7 @@ class DocumentoSNCM extends Component {
                         });        
                     });
                 });
-                axios.post('http://35.203.42.33:3000/consultar_doc9',{id_usuario: this.state.id_usuario})
+                axios.post('http://35.203.57.92:3000/consultar_doc9',{id_usuario: this.state.id_usuario})
                 .then(response => {
                     response.data.data.forEach(element => {
                         this.setState({
@@ -171,7 +171,7 @@ class DocumentoSNCM extends Component {
     }
 
     UpdateRFC = () =>{
-        axios.put('http://35.203.42.33:3000/modificar_documento',{id_usuario: this.state.id_usuario, archivo: this.state.rfc, id_cat_documento: 4, tipo_rfc: this.state.tipo_rfc})
+        axios.put('http://35.203.57.92:3000/modificar_documento',{id_usuario: this.state.id_usuario, archivo: this.state.rfc, id_cat_documento: 4, tipo_rfc: this.state.tipo_rfc})
         .then(response => {
             console.log('Modifico RFC');
         })
@@ -182,7 +182,7 @@ class DocumentoSNCM extends Component {
     }
 
     UpdateCSD = () =>{
-        axios.put('http://35.203.42.33:3000/modificar_documento',{id_usuario: this.state.id_usuario, archivo: this.state.csd, id_cat_documento: 7, tipo_rfc: null})
+        axios.put('http://35.203.57.92:3000/modificar_documento',{id_usuario: this.state.id_usuario, archivo: this.state.csd, id_cat_documento: 7, tipo_rfc: null})
         .then(response => {
             console.log('Modifico CSD');
         })

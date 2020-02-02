@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import { Container, Content, Grid, Col, Row, Text, Button, Input, View} from 'native-base';
-import { NetInfo, Dimensions} from 'react-native';
+import { Container, Content, Grid, Col, Row, Text, Button, Input, View } from 'native-base';
+import { NetInfo, Dimensions } from 'react-native';
 const { width } = Dimensions.get('window');
-import axios from 'axios'
+import React, { Component } from 'react';
+import axios from 'axios';
 
 class InformacionPersonal extends Component {
     constructor(props) {
@@ -15,11 +15,11 @@ class InformacionPersonal extends Component {
             nombre_new: this.props.navigation.getParam('nombre'),
             apellido_new: this.props.navigation.getParam('apellido'),
             curp_new: this.props.navigation.getParam('curp'),
-            msg: '', isConnected:true
+            msg: '', isConnected: true
         }
     }
 
-    componentDidMount(){
+    componentDidMount() {
         NetInfo.isConnected.addEventListener('connectionChange', this.handleConnectivityChange);
     }
 
@@ -29,102 +29,102 @@ class InformacionPersonal extends Component {
 
     handleConnectivityChange = isConnected => {
         this.setState({ isConnected });
-    };
+    }
 
-    modificarInformacion = () =>{ 
-        if(this.state.isConnected == true){
-            axios.post('http://35.203.42.33:3000/registrar_validacion_dp',{id_usuario: this.state.id_usuario, nombre_old: this.state.nombre_old,
-            nombre_new: this.state.nombre_new, apellido_old: this.state.apellido_old, apellido_new: this.state.apellido_new, curp_old: this.state.curp_old,
-            curp_new: this.state.curp_new})
-            .then(response=> {
-                this.props.navigation.navigate('MensajeValidacionIP')
+    modificarInformacion = () => {
+        if (this.state.isConnected == true) {
+            axios.post('http://35.203.57.92:3000/registrar_validacion_dp', {
+                id_usuario: this.state.id_usuario, nombre_old: this.state.nombre_old,
+                nombre_new: this.state.nombre_new, apellido_old: this.state.apellido_old, apellido_new: this.state.apellido_new, curp_old: this.state.curp_old,
+                curp_new: this.state.curp_new
             })
-            .catch(function (error) {
-                // handle error
-                console.log(error);
-            });
+                .then(response => {
+                    this.props.navigation.navigate('MensajeValidacionIP')
+                })
+                .catch(function (error) {
+                    // handle error
+                    console.log(error);
+                });
         }
     }
 
-
-    onValidateInput= () =>{
+    onValidateInput = () => {
         var validateCurp = /^([A-Z][AEIOUX][A-Z]{2}\d{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[12]\d|3[01])[HM](?:AS|B[CS]|C[CLMSH]|D[FG]|G[TR]|HG|JC|M[CNS]|N[ETL]|OC|PL|Q[TR]|S[PLR]|T[CSL]|VZ|YN|ZS)[B-DF-HJ-NP-TV-Z]{3}[A-Z\d])(\d)$/;
         var validateNombres = /^[a-zA-Z\sñáéíóú]+$/;
-        
-        if(this.state.isConnected != false){
-            if(this.state.nombre_new.trim() == "" ){
+
+        if (this.state.isConnected != false) {
+            if (this.state.nombre_new.trim() == "") {
                 this.setState(() => ({ errorNombre: "Ingresa tu Nombre" }));
-            }else if(!validateNombres.test(this.state.nombre_new)){
+            } else if (!validateNombres.test(this.state.nombre_new)) {
                 this.setState(() => ({ errorNombre: "Formato Incorrecto" }));
-            }else{
+            } else {
                 this.setState(() => ({ errorNombre: "" }));
             }
 
-            if(this.state.apellido_new.trim() == "" ){
+            if (this.state.apellido_new.trim() == "") {
                 this.setState(() => ({ errorApellido: "Ingresa tu Apellido" }));
-            }else if(!validateNombres.test(this.state.apellido_new)){
+            } else if (!validateNombres.test(this.state.apellido_new)) {
                 this.setState(() => ({ errorApellido: "Formato Incorrecto" }));
-            }else{
+            } else {
                 this.setState(() => ({ errorApellido: "" }));
             }
-            
-            if(this.state.curp_new.trim() == ""){
+
+            if (this.state.curp_new.trim() == "") {
                 this.setState(() => ({ errorCurp: "" }));
-            }else if(!validateCurp.test(this.state.curp_new.toUpperCase())){
+            } else if (!validateCurp.test(this.state.curp_new.toUpperCase())) {
                 this.setState(() => ({ errorCurp: "Formato Invalido" }));
-            }else{
+            } else {
                 this.setState(() => ({ errorCurp: "" }));
             }
 
-            if(this.state.nombre_new.trim() != "" && validateNombres.test(this.state.nombre_new) && this.state.apellido_new.trim() != "" &&  validateNombres.test(this.state.apellido_new) && this.state.curp_new.trim() != "" && validateCurp.test(this.state.curp_new.toUpperCase())){
+            if (this.state.nombre_new.trim() != "" && validateNombres.test(this.state.nombre_new) && this.state.apellido_new.trim() != "" && validateNombres.test(this.state.apellido_new) && this.state.curp_new.trim() != "" && validateCurp.test(this.state.curp_new.toUpperCase())) {
                 this.modificarInformacion();
             }
         }
     }
-
 
     render() {
         return (
             <Container>
                 <Content>
                     <Grid>
-                        <Row>            
-                            {!this.state.isConnected 
-                                ?<View style={{backgroundColor: '#b52424', height: 30, justifyContent: 'center', alignItems: 'center', flexDirection: 'row', width, position: 'relative', margin:0}}>
-                                <Text style={{color: '#fff'}}>Verifique su conexión e intente nuevamente</Text>
-                                </View> 
-                                :<View></View>
+                        <Row>
+                            {!this.state.isConnected
+                                ? <View style={{ backgroundColor: '#b52424', height: 30, justifyContent: 'center', alignItems: 'center', flexDirection: 'row', width, position: 'relative', margin: 0 }}>
+                                    <Text style={{ color: '#fff' }}>Verifique su conexión e intente nuevamente</Text>
+                                </View>
+                                : <View></View>
                             }
                         </Row>
                         <Row>
-                            <Col> 
-                                <Text style = {{marginLeft:20, marginTop:15}}>Nombre (s)</Text>
-                                <Input value={this.state.nombre_new} onChangeText={nombre_new => this.setState({ nombre_new })} style = {{borderBottomWidth: 0.5, width:200, marginLeft:20}}></Input>
+                            <Col>
+                                <Text style={{ marginLeft: 20, marginTop: 15 }}>Nombre (s)</Text>
+                                <Input value={this.state.nombre_new} onChangeText={nombre_new => this.setState({ nombre_new })} style={{ borderBottomWidth: 0.5, width: 200, marginLeft: 20 }}></Input>
                                 {!!this.state.errorNombre && (
-                                    <Text style={{ color: "red", fontSize:13, marginBottom:0, marginLeft:20}}>{this.state.errorNombre}</Text>
+                                    <Text style={{ color: "red", fontSize: 13, marginBottom: 0, marginLeft: 20 }}>{this.state.errorNombre}</Text>
                                 )}
                             </Col>
                         </Row>
                         <Row>
                             <Col>
-                                <Text style = {{marginLeft:20, marginTop:15}}>Apellido (s)</Text>
-                                <Input value={this.state.apellido_new} onChangeText={apellido_new => this.setState({ apellido_new })} style = {{borderBottomWidth: 0.5, width:200, marginLeft:20}}></Input>
+                                <Text style={{ marginLeft: 20, marginTop: 15 }}>Apellido (s)</Text>
+                                <Input value={this.state.apellido_new} onChangeText={apellido_new => this.setState({ apellido_new })} style={{ borderBottomWidth: 0.5, width: 200, marginLeft: 20 }}></Input>
                                 {!!this.state.errorApellido && (
-                                    <Text style={{ color: "red", fontSize:13, marginBottom:0, marginLeft:20}}>{this.state.errorApellido}</Text>
+                                    <Text style={{ color: "red", fontSize: 13, marginBottom: 0, marginLeft: 20 }}>{this.state.errorApellido}</Text>
                                 )}
                             </Col>
                         </Row>
                         <Row>
                             <Col>
-                                <Text style = {{marginLeft:20, marginTop:15}}>CURP</Text>
-                                <Input value={this.state.curp_new} onChangeText={curp_new => this.setState({ curp_new })} maxLength={18} style = {{borderBottomWidth: 0.5, width:200, marginLeft:20}}></Input>
+                                <Text style={{ marginLeft: 20, marginTop: 15 }}>CURP</Text>
+                                <Input value={this.state.curp_new} onChangeText={curp_new => this.setState({ curp_new })} maxLength={18} style={{ borderBottomWidth: 0.5, width: 200, marginLeft: 20 }}></Input>
                                 {!!this.state.errorCurp && (
-                                    <Text style={{ color: "red", fontSize:13, marginBottom:2, marginLeft:20}}>{this.state.errorCurp}</Text>
+                                    <Text style={{ color: "red", fontSize: 13, marginBottom: 2, marginLeft: 20 }}>{this.state.errorCurp}</Text>
                                 )}
                             </Col>
                         </Row>
-                        <Row><Col><Button block onPress={this.onValidateInput} style = {{marginLeft: 20, marginRight: 20, marginTop:20, backgroundColor:'#ff8834'}}><Text>Guardar</Text></Button></Col></Row>
-                    </Grid> 
+                        <Row><Col><Button block onPress={this.onValidateInput} style={{ marginLeft: 20, marginRight: 20, marginTop: 20, backgroundColor: '#ff8834' }}><Text>Guardar</Text></Button></Col></Row>
+                    </Grid>
                 </Content>
             </Container>
         );

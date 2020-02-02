@@ -1,54 +1,55 @@
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 
-import Login from './modules/Login/Login'
-import VerificarTelefono from './modules/Login/VerificarTelefono'
-import CodigoVerificacion from './modules/Login/CodigoVerficacion'
-import Legal from './modules/Login/Legal'
-import Terminos from './modules/Login/Politica/Terminos'
-import Privacidad from './modules/Login/Politica/Privacidad'
-import OlvideContrasena from './modules/Login/RecuperacionContrasena/OlvideContrasena'
-import RestablecerContrasena from './modules/Login/RecuperacionContrasena/RestablecerContrasena'
-import CodigoVerificacionContrasena from './modules/Login/RecuperacionContrasena/CodigoVerificacionContrasena'
-import RecuperacionContrasena from './modules/Login/RecuperacionContrasena/RecuperacionContrasena'
-import InformacionPersonalRegistro from './modules/Login/InformacionPersonal'
-import DocumentoSC from './modules/Login/DocumentoSC'
-import DocumentoSNC from './modules/Login/DocumentoSNC'
+import Login from './modules/Registro/Login'
+import VerificarTelefono from './modules/Registro/VerificarTelefono'
+import CodigoVerificacion from './modules/Registro/CodigoVerficacion'
+import Legal from './modules/Registro/Politica/Legal'
+import Terminos from './modules/Registro/Politica/Terminos'
+import Privacidad from './modules/Registro/Politica/Privacidad'
+import RestablecerContrasena from './modules/Registro/RecuperacionContrasena/RestablecerContrasena'
+import CodigoVerificacionContrasena from './modules/Registro/RecuperacionContrasena/CodigoVerificacionContrasena'
+import RecuperacionContrasena from './modules/Registro/RecuperacionContrasena/RecuperacionContrasena'
+import InformacionPersonalRegistro from './modules/Registro/InformacionPersonal'
+import DocumentoSC from './modules/Registro/DocumentoSC'
+import DocumentoSNC from './modules/Registro/DocumentoSNC'
 
-import IdentificacionOficialSC from './modules/Login/DocSC/IdentificacionOficialSC'
-import LicenciaConducirSC from './modules/Login/DocSC/LicenciaConducirSC'
-import CartaAntecedentesPenalesSC from './modules/Login/DocSC/CartaAntecedentesPenalesSC'
-import ComprobanteDomicilioSC from './modules/Login/DocSC/ComprobanteDomicilioSC'
-import PruebaToxicologicaSC from './modules/Login/DocSC/PruebaToxicologicaSC'
-import FotoPerfilSC from './modules/Login/DocSC/FotoPerfilSC'
-import ArchivoPublicoSC from './modules/Login/DocSC/ArchivoPublicoSC'
-import ArchivoPrivadoSC from './modules/Login/DocSC/ArchivoPrivadoSC'
-import CamaraSC from './modules/Login/DocSC/CamaraSC'
-import CamaraSNC from './modules/Login/DocSNC/CamaraSNC'
-import CamaraSCM from './modules/Perfil/Configuracion/Documento/DocSCM/CamaraSCM'
-import CamaraSNCM from './modules/Perfil/Configuracion/Documento/DocSNCM/CamaraSNCM'
-import CargarIdentificacionSC from './modules/Login/DocSC/CargarIdentificacionSC'
-import CargarLicenciaSC from './modules/Login/DocSC/CargarLicenciaSC'
-import CargarCartaSC from './modules/Login/DocSC/CargarCartaSC'
-import CargarComprobanteSC from './modules/Login/DocSC/CargarComprobanteSC'
-import CargarPruebaTSC from './modules/Login/DocSC/CargarPruebaTSC'
-import CargarFotoSC from './modules/Login/DocSC/CargarFotoSC'
-import CargarArchivoPublicoSC from './modules/Login/DocSC/CargarArchivoPublicoSC'
-import CargarArchivoPrivadoSC from './modules/Login/DocSC/CargarArchivoPrivadoSC'
+/*Documentos del Socio No Conductor*/
+import IdentificacionOficialSC from './modules/Registro/DocSC/IdentificacionOficialSC'
+import LicenciaConducirSC from './modules/Registro/DocSC/LicenciaConducirSC'
+import CartaAntecedentesPenalesSC from './modules/Registro/DocSC/CartaAntecedentesPenalesSC'
+import ComprobanteDomicilioSC from './modules/Registro/DocSC/ComprobanteDomicilioSC'
+import PruebaToxicologicaSC from './modules/Registro/DocSC/PruebaToxicologicaSC'
+import FotoPerfilSC from './modules/Registro/DocSC/FotoPerfilSC'
+import ArchivoPublicoSC from './modules/Registro/DocSC/ArchivoPublicoSC'
+import ArchivoPrivadoSC from './modules/Registro/DocSC/ArchivoPrivadoSC'
+//import CamaraSC from './modules/Registro/DocSC/CamaraSC'
+//import CamaraSNC from './modules/Registro/DocSNC/CamaraSNC'
+//import CamaraSCM from './modules/Perfil/Configuracion/Documento/DocSCM/CamaraSCM'
+//import CamaraSNCM from './modules/Perfil/Configuracion/Documento/DocSNCM/CamaraSNCM'
+import CargarIdentificacionSC from './modules/Registro/DocSC/CargarIdentificacionSC'
+import CargarLicenciaSC from './modules/Registro/DocSC/CargarLicenciaSC'
+import CargarCartaSC from './modules/Registro/DocSC/CargarCartaSC'
+import CargarComprobanteSC from './modules/Registro/DocSC/CargarComprobanteSC'
+import CargarPruebaTSC from './modules/Registro/DocSC/CargarPruebaTSC'
+import CargarFotoSC from './modules/Registro/DocSC/CargarFotoSC'
+import CargarArchivoPublicoSC from './modules/Registro/DocSC/CargarArchivoPublicoSC'
+import CargarArchivoPrivadoSC from './modules/Registro/DocSC/CargarArchivoPrivadoSC'
 
-import IdentificacionOficialSNC from './modules/Login/DocSNC/IdentificacionOficialSNC'
-import ComprobanteDomicilioSNC from './modules/Login/DocSNC/ComprobanteDomicilioSNC'
-import FotoPerfilSNC from './modules/Login/DocSNC/FotoPerfilSNC'
-import ArchivoPublicoSNC from './modules/Login/DocSNC/ArchivoPublicoSNC'
-import ArchivoPrivadoSNC from './modules/Login/DocSNC/ArchivoPrivadoSNC'
-import CargarIdentificacionSNC from './modules/Login/DocSNC/CargarIdentificacionSNC'
-import CargarComprobanteSNC from './modules/Login/DocSNC/CargaComprobanteSNC'
-import CargarFotoSNC from './modules/Login/DocSNC/CargarFotoSNC'
-import CargarArchivoPublicoSNC from './modules/Login/DocSNC/CargarArchivoPublicoSNC'
-import CargarArchivoPrivadoSNC from './modules/Login/DocSNC/CargarArchivoPrivadoSNC'
+/*Documentos del Socio No Conductor*/
+import IdentificacionOficialSNC from './modules/Registro/DocSNC/IdentificacionOficialSNC'
+import ComprobanteDomicilioSNC from './modules/Registro/DocSNC/ComprobanteDomicilioSNC'
+import FotoPerfilSNC from './modules/Registro/DocSNC/FotoPerfilSNC'
+import ArchivoPublicoSNC from './modules/Registro/DocSNC/ArchivoPublicoSNC'
+import ArchivoPrivadoSNC from './modules/Registro/DocSNC/ArchivoPrivadoSNC'
+import CargarIdentificacionSNC from './modules/Registro/DocSNC/CargarIdentificacionSNC'
+import CargarComprobanteSNC from './modules/Registro/DocSNC/CargaComprobanteSNC'
+import CargarFotoSNC from './modules/Registro/DocSNC/CargarFotoSNC'
+import CargarArchivoPublicoSNC from './modules/Registro/DocSNC/CargarArchivoPublicoSNC'
+import CargarArchivoPrivadoSNC from './modules/Registro/DocSNC/CargarArchivoPrivadoSNC'
 
-import CuentaBancariaRegistro from './modules/Login/CuentaBancaria'
-import ValidacionRegistro from './modules/Login/ValidacionRegistro'
+import CuentaBancariaRegistro from './modules/Registro/CuentaBancaria'
+import ValidacionRegistro from './modules/Registro/ValidacionRegistro'
 
 /* HOME */
 import Home from './modules/Home/Home'
@@ -109,8 +110,7 @@ const navigator = createStackNavigator({
     navigationOptions: {
       header:null
     }
-  }
-  ,
+  },
   VerificarTelefono:{
     screen : VerificarTelefono,
     navigationOptions: {
@@ -139,12 +139,6 @@ const navigator = createStackNavigator({
     screen : Privacidad,
     navigationOptions: {
       headerTitle:'Aviso de Privacidad'
-    }
-  },
-  OlvideContrasena:{
-    screen : OlvideContrasena,
-    navigationOptions: {
-      headerTitle:'Recuperar Mi Contraseña'
     }
   },
   RestablecerContrasena:{
@@ -229,20 +223,6 @@ const navigator = createStackNavigator({
     screen : ArchivoPrivadoSC,
     navigationOptions: {
       headerTitle:'Archivo de Certificado Privado'
-    }
-  },
-  CamaraSC:{
-    screen : CamaraSC,
-    navigationOptions: {
-      headerTransparent: true,
-      headerTintColor:'white'
-    }
-  },
-  CamaraSNC:{
-    screen : CamaraSNC,
-    navigationOptions: {
-      headerTransparent: true,
-      headerTintColor:'white'
     }
   },
   CargarIdentificacionSC:{
@@ -599,21 +579,6 @@ const navigator = createStackNavigator({
       headerTitle:'Cargar Archivo Certificado Privado'
     }
   },
-  CamaraSCM:{
-    screen : CamaraSCM,
-    navigationOptions: {
-      headerTransparent: true,
-      headerTintColor:'white'
-    }
-  },
-  CamaraSNCM:{
-    screen : CamaraSNCM,
-    navigationOptions: {
-      headerTransparent: true,
-      headerTintColor:'white'
-    }
-  },
-  
   CodigoV:{
     screen : CodigoV,
     navigationOptions: {

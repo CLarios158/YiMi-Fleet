@@ -32,7 +32,7 @@ class CargarArchivoPrivado extends Component {
     CargarDocumento = () =>{
         if(this.state.isConnected != false){
 
-            axios.put('http://35.203.42.33:3000/modificar_documento',{id_usuario: this.state.id_usuario, archivo: this.state.archivo, id_cat_documento: this.state.id_cat_documento, tipo_rfc: null})
+            axios.put('http://35.203.57.92:3000/modificar_documento',{id_usuario: this.state.id_usuario, archivo: this.state.archivo, id_cat_documento: this.state.id_cat_documento, tipo_rfc: null})
             .then(response => {
                 console.log('Modifico .key');
                 Alert.alert(
